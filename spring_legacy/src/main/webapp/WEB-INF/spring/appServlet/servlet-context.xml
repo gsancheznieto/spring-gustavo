@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.Persona" id="ronnie"><!-- busca en la clase persona el metodo de nombre y lo inyecta -->
+		<beans:property name="nombre" value="Ronnie"></beans:property>
+		<beans:property name="edad" value="33"></beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.Persona" id="hector"><!-- busca en la clase persona el metodo de nombre y lo inyecta -->
+		<beans:property name="nombre" value="Hector"></beans:property>
+		<beans:property name="edad" value="22"></beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.Persona" id="emmanuel"><!-- busca en la clase persona el metodo de nombre y lo inyecta -->
+		<beans:property name="nombre" value="Emmanuel"></beans:property>
+		<beans:property name="edad" value="33"></beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.Persona" id="gustavo"><!-- busca en la clase persona el metodo de nombre y lo inyecta -->
+		<beans:property name="nombre" value="Gustavo"></beans:property>
+		<beans:property name="edad" value="33"></beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.Persona" id="jeancarlo"><!-- busca en la clase persona el metodo de nombre y lo inyecta -->
+		<beans:property name="nombre" value="Jean Carlo"></beans:property>
+		<beans:property name="edad" value="31"></beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.Persona" id="tona"><!-- busca en la clase persona el metodo de nombre y lo inyecta -->
+		<beans:property name="nombre" value="Tonatiuh"></beans:property>
+		<beans:property name="edad" value="23"></beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.Persona" id="david"><!-- busca en la clase persona el metodo de nombre y lo inyecta -->
+		<beans:property name="nombre" value="David"></beans:property>
+		<beans:property name="edad" value="27"></beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.Empresa" id="empresa">
+		<beans:property name="ceo" ref="emmanuel"></beans:property>
+		<beans:property name="nombre" value="conejomalo"></beans:property>
+		<beans:property name="empleados">
+			<beans:list>
+				<beans:ref bean="hector"/>
+				<beans:ref bean="ronnie"/>
+				<beans:ref bean="gustavo"/>
+				<beans:ref bean="jeancarlo"/>
+				<beans:ref bean="tona"/>
+				<beans:ref bean="david"/>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.PersonaTarea" id="jorge">
+		<beans:property name="nombre" value="Jorge Ocampo"></beans:property>
+		<beans:property name="sueldoDiario" value="2100.34"></beans:property>
+		<beans:property name="edad" value="49"></beans:property>
+		<beans:property name="sexo" value="Masculino"></beans:property>
+		<beans:property name="subordinados">
+			<beans:list>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.PersonaTarea" id="perla">
+		<beans:property name="nombre" value="Perla Ramirez"></beans:property>
+		<beans:property name="sueldoDiario" value="1901.21"></beans:property>
+		<beans:property name="edad" value="27"></beans:property>
+		<beans:property name="sexo" value="Femenino"></beans:property>
+		<beans:property name="subordinados">
+			<beans:list>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.PersonaTarea" id="rosario">
+		<beans:property name="nombre" value="Rosario Luna"></beans:property>
+		<beans:property name="sueldoDiario" value="771.89"></beans:property>
+		<beans:property name="edad" value="19"></beans:property>
+		<beans:property name="sexo" value="Femenino"></beans:property>
+		<beans:property name="subordinados">
+			<beans:list>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.PersonaTarea" id="angel">
+		<beans:property name="nombre" value="Angel Ramirez"></beans:property>
+		<beans:property name="sueldoDiario" value="1021.89"></beans:property>
+		<beans:property name="edad" value="31"></beans:property>
+		<beans:property name="sexo" value="Masculino"></beans:property>
+		<beans:property name="subordinados">
+			<beans:list>
+				<beans:ref bean="jorge"/>
+				<beans:ref bean="rosario"/>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.PersonaTarea" id="alma">
+		<beans:property name="nombre" value="Alma Chavez"></beans:property>
+		<beans:property name="sueldoDiario" value="1581.58"></beans:property>
+		<beans:property name="edad" value="41"></beans:property>
+		<beans:property name="sexo" value="Femenino"></beans:property>
+		<beans:property name="subordinados">
+			<beans:list>
+				<beans:ref bean="perla"/>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean class="com.spring.bean.PersonaTarea" id="emmanuelg">
+		<beans:property name="nombre" value="Emmanuel Gomez"></beans:property>
+		<beans:property name="sueldoDiario" value="5420.12"></beans:property>
+		<beans:property name="edad" value="33"></beans:property>
+		<beans:property name="sexo" value="Masculino"></beans:property>
+		<beans:property name="subordinados">
+			<beans:list>
+				<beans:ref bean="angel"/>
+				<beans:ref bean="alma"/>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	
+	
+	
+	<context:component-scan base-package="com.spring.legacy" />
+	
+	
+	
+</beans:beans>
